@@ -58,7 +58,7 @@ public class Equipo {
 		return encontrado;
 	}
 	public void delAlumno(String nombre) {
-		while (delUnAlumno(nombre)==true);
+		while (delUnAlumno(nombre));
 	}
 
 	public Equipo unionEquipos(Equipo e) {
@@ -67,7 +67,6 @@ public class Equipo {
 				try {
 					auxiliar.addAlumno2(a);
 				} catch (EquipoException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
