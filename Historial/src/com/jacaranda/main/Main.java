@@ -16,7 +16,7 @@ public class Main {
 		int opc;
 		
 		do {
-			menu();
+			System.out.println(menu());
 			System.out.println("Introduzca una opcion");
 			opc = Integer.parseInt(teclado.nextLine());
 			switch (opc) {
