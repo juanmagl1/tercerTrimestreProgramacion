@@ -1,11 +1,11 @@
 package com.jacaranda.paginaweb;
 
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.jacaranda.utilities.Pueblo;
 
 public class Historial {
 	private List<PaginaWeb> paginas;
@@ -55,8 +55,7 @@ public class Historial {
 			//se salga del bucle
 			if (p.getHora().isAfter(dia)) {
 				salir=true;
-			}
-			if (p.getHora().getYear() == dia.getYear() && p.getHora().getMonth() == dia.getMonth()
+			}else if (p.getHora().getYear() == dia.getYear() && p.getHora().getMonth() == dia.getMonth()
 					&& p.getHora().getDayOfMonth() == dia.getDayOfMonth()) {
 				cadena.append(p);
 			}
