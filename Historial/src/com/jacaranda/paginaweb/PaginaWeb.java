@@ -28,9 +28,11 @@ public LocalDateTime getHora() {
 	return hora;
 }
 
+
+
 @Override
 public int hashCode() {
-	return Objects.hash(hora);
+	return Objects.hash(hora, url);
 }
 
 @Override
@@ -42,7 +44,7 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	PaginaWeb other = (PaginaWeb) obj;
-	return Objects.equals(hora, other.hora);
+	return Objects.equals(hora, other.hora) && Objects.equals(url, other.url);
 }
 
 @Override
