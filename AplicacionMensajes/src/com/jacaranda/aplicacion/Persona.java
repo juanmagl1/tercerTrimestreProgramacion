@@ -7,11 +7,11 @@ import java.util.List;
 public abstract class Persona {
 
 protected int edad;
-private String nombre;
+protected String nombre;
 protected List<Mensaje> mensajesRecibido;
 protected List<Mensaje> mensajesEnviado;
 
-public Persona(int edad, String nombre) throws PersonaException,AlumnoException {
+protected Persona(int edad, String nombre) throws PersonaException,AlumnoException {
 	super();
 	this.setEdad(edad);
 	this.nombre = nombre;

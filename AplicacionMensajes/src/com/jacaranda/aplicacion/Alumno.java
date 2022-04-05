@@ -5,6 +5,7 @@ public class Alumno extends Persona {
 	public Alumno(int edad, String nombre) throws PersonaException, AlumnoException{
 		super(edad, nombre);
 	}
+	@Override
 	public boolean sendMessage(Persona remitente,String texto) throws MensajeException, AlumnoException {
 		boolean mandado=false;
 		if (remitente instanceof Alumno && edad<18) {
