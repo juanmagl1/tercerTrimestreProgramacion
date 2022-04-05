@@ -11,7 +11,7 @@ public class Alumno extends Persona {
 			throw new AlumnoException("No se puede enviar el mensaje");
 		}else {
 			Mensaje m1=new Mensaje(super.getNombre(),remitente.getNombre(),texto);
-			super.mensajesRecibido.add(m1);
+			remitente.mensajesRecibido.add(m1);
 			super.mensajesEnviado.add(m1);
 			mandado=true;
 		}
