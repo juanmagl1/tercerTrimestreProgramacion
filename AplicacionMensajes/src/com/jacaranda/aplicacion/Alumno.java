@@ -18,5 +18,11 @@ public class Alumno extends Persona {
 		}
 		return mandado;
 	}
+	@Override
+	public String toString() {
+		return "Alumno [edad=" + edad + ", nombre=" + nombre + ", mensajesRecibido=" + mensajesRecibido
+				+ ", mensajesEnviado=" + mensajesEnviado + "]";
+	}
+	
 	
 }

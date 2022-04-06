@@ -10,5 +10,11 @@ public class Profesor extends Persona {
 		super.sendMessage(destinatario, texto);
 		return resultado;
 	}
+	@Override
+	public String toString() {
+		return "Profesor [edad=" + edad + ", nombre=" + nombre + ", mensajesRecibido=" + mensajesRecibido
+				+ ", mensajesEnviado=" + mensajesEnviado + "]";
+	}
+	
 
 }
