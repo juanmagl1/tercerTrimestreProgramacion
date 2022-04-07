@@ -85,7 +85,7 @@ public class Mensaje implements Comparable<Mensaje>{
 		if (o==null) {
 			resultado=-1;
 		}else {
-			resultado=this.remitente.compareToIgnoreCase(o.getRemitente());
+			resultado=this.fecha.compareTo(o.getFecha());
 		}
 		return resultado;
 	}
