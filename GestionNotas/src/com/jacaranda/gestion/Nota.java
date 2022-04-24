@@ -61,6 +61,8 @@ public boolean equals(Object obj) {
 }
 
 
-
+public String escribeFichero() {
+	return this.nota+ "," + this.fecha+ "," + this.alumno.getDni() + "," + this.modulo.getNombre();
+}
 
 }

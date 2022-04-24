@@ -61,6 +61,8 @@ public boolean equals(Object obj) {
 	Alumnado other = (Alumnado) obj;
 	return Objects.equals(dni, other.dni);
 }
-
+public String escribeFichero() {
+	return this.nombre+ "," + this.dni + "," + this.eMail;
+}
 
 }

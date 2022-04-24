@@ -73,5 +73,7 @@ public String toString() {
 	return "Modulos [nombre=" + nombre + ", codigo=" + codigo + ", numHorasSemanales=" + numHorasSemanales
 			+ ", creditos=" + creditos + "]";
 }
-
+public String escribeFichero() {
+	return this.nombre+ "," + this.codigo+ "," + this.creditos + "," + this.numHorasSemanales;
+}
 }
