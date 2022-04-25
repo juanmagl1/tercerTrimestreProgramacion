@@ -42,6 +42,11 @@ public String getModulo() {
 }
 
 @Override
+public String toString() {
+	return "Nota [nota=" + nota + ", fecha=" + fecha + ", alumno=" + alumno.getDni() + ", modulo=" + modulo.getNombre() + "]";
+}
+
+@Override
 public int hashCode() {
 	return Objects.hash(alumno, fecha, modulo, nota);
 }

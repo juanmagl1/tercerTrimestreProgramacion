@@ -27,7 +27,7 @@ public class Main {
 		int opc;
 		leerfichero("ficheros\\alumnado.txt");
 		leerficheroModulo("ficheros\\modulos.txt");
-		// leerficheroNota("ficheros\\nota.txt");
+		leerficheroNota("ficheros\\nota.txt");
 		do {
 			muestraMenu();
 			opc = Integer.parseInt(teclado.nextLine());
@@ -66,13 +66,20 @@ public class Main {
 				System.out.println("Dime un nombre de asignatura");
 				String nombre = teclado.nextLine();
 				Modulo m1 = new Modulo(nombre);
-				System.out.println("Dime un nombre");
-				String nombreAlumno = teclado.nextLine();
-				System.out.println("Dime un dni");
-				String dni = teclado.nextLine();
-				Alumnado a1 = new Alumnado(nombreAlumno, dni);
-				Nota n1 = new Nota(nota, LocalTime.now(), a1, m1);
-				listaNota.add(n1);
+				if (!listaModulos.contains(m1)) {
+					System.out.println("No está el modulo");
+				}else {
+					System.out.println("Dime un nombre");
+					String nombreAlumno = teclado.nextLine();
+					System.out.println("Dime un dni");
+					String dni = teclado.nextLine();
+					Alumnado a1 = new Alumnado(nombreAlumno, dni);
+					if (listaAlumnos.contains(a1)) {
+						Nota n1 = new Nota(nota, LocalTime.now(), a1, m1);
+						listaNota.add(n1);
+					}
+				}
+	
 				break;
 			}
 			case 4: {
@@ -218,14 +225,14 @@ public class Main {
 				String[] campos = linea.split(",");
 				
 				String dni = campos[2];
-				Alumnado alu = new Alumnado(dni,"kk");
-				int posicion = listaAlumnos.indexOf(alu);
-				alu = listaAlumnos.get(posicion);
+				Alumnado alu = new Alumnado("kk",dni);
+				int posicion = listaAlumnos.indexOf(alu);//consigo la posicion que esta el alumno
+				alu = listaAlumnos.get(posicion);//Con el get consigo al alumno que tiene esa posición
 				
 				String nombreA = campos[3];
 				
 				boolean encontrado = false;
-				Modulo resultado;
+				Modulo resultado = null;
 				Iterator<Modulo> siguiente = listaModulos.iterator();
 				while (siguiente.hasNext() && !encontrado) {
 					Modulo m1 = siguiente.next();
@@ -235,10 +242,7 @@ public class Main {
 						
 					}
 				}
-				
-				
-				
-				Nota n2 = new Nota(Double.parseDouble(campos[0]), LocalTime.parse(campos[1]), ,);
+				Nota n2 = new Nota(Double.parseDouble(campos[0]), LocalTime.parse(campos[1]),alu ,resultado);
 				listaNota.add(n2);
 				// Leo otra línea
 				linea = filtroLectura.readLine();
