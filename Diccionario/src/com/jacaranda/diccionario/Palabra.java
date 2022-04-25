@@ -26,15 +26,9 @@ public class Palabra {
 		if (significado == null) {
 			throw new PalabraException("El significado no puede ser nulo");
 		} else {
-			Iterator<String> siguiente = this.significado.iterator();
-			boolean encontrado = false;
-			while (siguiente.hasNext() && !encontrado) {
-				String s1 = siguiente.next();
-				if (!(s1.equalsIgnoreCase(significado))) {
-					this.significado.add(significado);
-				} else {
-					throw new PalabraException("El significado no puede ser repetido");
-				}
+			this.significado.add(significado);
+			if (!(this.significado.add(significado))) {
+				throw new PalabraException ("El significado ya está en la lista");
 			}
 		}
 	}
