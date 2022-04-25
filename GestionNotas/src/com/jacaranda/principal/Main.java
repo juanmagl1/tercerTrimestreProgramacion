@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -75,7 +76,7 @@ public class Main {
 					String dni = teclado.nextLine();
 					Alumnado a1 = new Alumnado(nombreAlumno, dni);
 					if (listaAlumnos.contains(a1)) {
-						Nota n1 = new Nota(nota, LocalTime.now(), a1, m1);
+						Nota n1 = new Nota(nota, LocalDate.now(), a1, m1);
 						listaNota.add(n1);
 					}
 				}
@@ -242,7 +243,7 @@ public class Main {
 						
 					}
 				}
-				Nota n2 = new Nota(Double.parseDouble(campos[0]), LocalTime.parse(campos[1]),alu ,resultado);
+				Nota n2 = new Nota(Double.parseDouble(campos[0]), LocalDate.parse(campos[1]),alu ,resultado);
 				listaNota.add(n2);
 				// Leo otra línea
 				linea = filtroLectura.readLine();
