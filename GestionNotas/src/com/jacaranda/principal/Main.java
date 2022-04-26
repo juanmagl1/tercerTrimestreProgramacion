@@ -24,7 +24,7 @@ public class Main {
 	public static ArrayList<Nota> listaNota = new ArrayList<>();
 	public static Scanner teclado = new Scanner(System.in);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		int opc;
 		leerfichero("ficheros\\alumnado.txt");
 		leerficheroModulo("ficheros\\modulos.txt");
@@ -214,7 +214,7 @@ public class Main {
 		}
 	}
 
-	private static void leerficheroNota(String nombreFichero) {
+	private static void leerficheroNota(String nombreFichero) throws Exception {
 		String linea;
 		try {
 			FileReader flujoLectura = new FileReader(nombreFichero);
@@ -228,6 +228,9 @@ public class Main {
 				String dni = campos[2];
 				Alumnado alu = new Alumnado("kk",dni);
 				int posicion = listaAlumnos.indexOf(alu);//consigo la posicion que esta el alumno
+				if (posicion<0) {
+					throw new Exception("El alumno no está en la lista");
+				}
 				alu = listaAlumnos.get(posicion);//Con el get consigo al alumno que tiene esa posición
 				
 				String nombreA = campos[3];
@@ -242,6 +245,9 @@ public class Main {
 						resultado = m1;
 						
 					}
+				}
+				if (!encontrado) {
+					throw new Exception("El modulo no existe");
 				}
 				Nota n2 = new Nota(Double.parseDouble(campos[0]), LocalDate.parse(campos[1]),alu ,resultado);
 				listaNota.add(n2);
