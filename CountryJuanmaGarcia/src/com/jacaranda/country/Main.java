@@ -11,9 +11,18 @@ public class Main {
 
 	public static void main(String[] args) {
 		leerCountry("ficheros//country.txt");
-		System.out.println(paises);
 		leerCity("ficheros//city.txt");
-		System.out.println(paises);
+		leerAddress("ficheros//address2.txt");
+		for (Country siguiente : paises) {
+			System.out.println(siguiente);
+		}
+		Country c1 = new Country(1, "Brasil");
+		c1.addCity(1, "Sao paulo");
+		c1.addCity(2, "Ruina");
+		System.out.println(c1);
+		c1.getCiudad(1).addAddress(1, "Calle Cristo");
+		c1.getCiudad(2).addAddress(3, "yoni");
+		System.out.println(c1);
 	}
 
 	private static void leerCountry(String nombreFichero) {
@@ -47,11 +56,11 @@ public class Main {
 			while (linea != null) {
 				// Creo la ciudad y después la añado
 				String[] campos = linea.split(",");
-				Country c1=new Country(Integer.parseInt(campos[2]),null);
-				 int posicion=paises.indexOf(c1);
-				 //cuando consigo la posicion escribo un punto porque esta 
-				 //ya del tipo country
-				 paises.get(posicion).addCity(Integer.parseInt(campos[0]),campos[1]);
+				Country c1 = new Country(Integer.parseInt(campos[2]), null);
+				int posicion = paises.indexOf(c1);
+				// cuando consigo la posicion escribo un punto porque esta
+				// ya del tipo country
+				paises.get(posicion).addCity(Integer.parseInt(campos[0]), campos[1]);
 				// leo otra linea
 				linea = filtroLectura.readLine();
 			}
@@ -71,7 +80,22 @@ public class Main {
 			BufferedReader filtroLectura = new BufferedReader(flujoLectura);
 			linea = filtroLectura.readLine();
 			while (linea != null) {
-				System.out.println(linea);
+				String[] campos = linea.split(",");
+				// Saco el id de la ciudad
+				int city_id=(Integer.parseInt(campos[4]));
+				// Recorro los paises para ver en que pais introduzco la ciudad
+				// Lo hago con el for para probar que funcione
+				for (Country siguiente:paises) {
+					Country aux = siguiente;
+					City c =aux.getCiudad(city_id);
+					if (c!=null){
+						c.addAddress(Integer.parseInt(campos[0]), campos[1]);
+					}
+					
+					
+			}
+				// A siguiente le hago el get Ciudad, para que me devuelva la ciudad
+				// Cuando el get ciudad me devuelva la ciudad, le añado la direccion
 				linea = filtroLectura.readLine();
 			}
 			filtroLectura.close();

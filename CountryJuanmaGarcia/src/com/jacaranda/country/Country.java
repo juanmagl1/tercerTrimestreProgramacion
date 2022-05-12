@@ -35,8 +35,14 @@ public class Country {
 	public City getCiudad(int city_id) {
 		City aux = new City(city_id, null);
 		int posicion = this.ciudades.indexOf(aux);
-		return this.ciudades.get(posicion);
+		if (posicion==-1) {
+			return null;
+		}else {
+			return this.ciudades.get(posicion);
+		}
+		
 	}
+
 	public void addCity(int city_id, String city) {
 		City aux=new City(city_id,city);
 		int posicion=this.ciudades.indexOf(aux);

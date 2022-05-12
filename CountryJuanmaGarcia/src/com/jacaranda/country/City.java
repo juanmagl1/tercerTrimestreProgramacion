@@ -1,6 +1,5 @@
 package com.jacaranda.country;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class City {
 		super();
 		this.city_id = city_id;
 		this.city = city;
-		this.direcciones = new ArrayList<>();
+		this.direcciones = new LinkedList<>();
 	}
 
 	public int getCity_id() {
