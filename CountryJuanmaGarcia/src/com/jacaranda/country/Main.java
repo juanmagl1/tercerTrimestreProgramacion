@@ -3,8 +3,11 @@ package com.jacaranda.country;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 	public static ArrayList<Country> paises = new ArrayList<>();
@@ -13,16 +16,11 @@ public class Main {
 		leerCountry("ficheros//country.txt");
 		leerCity("ficheros//city.txt");
 		leerAddress("ficheros//address2.txt");
-		for (Country siguiente : paises) {
-			System.out.println(siguiente);
-		}
-		Country c1 = new Country(1, "Brasil");
-		c1.addCity(1, "Sao paulo");
-		c1.addCity(2, "Ruina");
-		System.out.println(c1);
-		c1.getCiudad(1).addAddress(1, "Calle Cristo");
-		c1.getCiudad(2).addAddress(3, "yoni");
-		System.out.println(c1);
+		escribirEnFichero("ficheros//terminado.txt");
+//		for (Country siguiente : paises) {
+//			System.out.println(siguiente);
+//		}
+		
 	}
 
 	private static void leerCountry(String nombreFichero) {
@@ -82,18 +80,17 @@ public class Main {
 			while (linea != null) {
 				String[] campos = linea.split(",");
 				// Saco el id de la ciudad
-				int city_id=(Integer.parseInt(campos[4]));
+				int city_id = (Integer.parseInt(campos[4]));
 				// Recorro los paises para ver en que pais introduzco la ciudad
 				// Lo hago con el for para probar que funcione
-				for (Country siguiente:paises) {
+				for (Country siguiente : paises) {
 					Country aux = siguiente;
-					City c =aux.getCiudad(city_id);
-					if (c!=null){
+					City c = aux.getCiudad(city_id);
+					if (c != null) {
 						c.addAddress(Integer.parseInt(campos[0]), campos[1]);
 					}
-					
-					
-			}
+
+				}
 				// A siguiente le hago el get Ciudad, para que me devuelva la ciudad
 				// Cuando el get ciudad me devuelva la ciudad, le añado la direccion
 				linea = filtroLectura.readLine();
@@ -107,4 +104,19 @@ public class Main {
 		}
 	}
 
+	private static void escribirEnFichero(String nombre) {
+		String cadena;
+		try {
+			FileWriter flujoEscritura = new FileWriter(nombre);
+			PrintWriter filtroEscritura = new PrintWriter(flujoEscritura);
+			
+			for (Country siguiente:paises) {				
+				filtroEscritura.println(siguiente);
+			}
+			filtroEscritura.close();
+			flujoEscritura.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

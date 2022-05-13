@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class City {
+public class City implements Comparable<City>{
 	private int city_id;
 	private String city;
 	private List<Address> direcciones;
@@ -66,6 +66,15 @@ public class City {
 			return false;
 		City other = (City) obj;
 		return city_id == other.city_id;
+	}
+
+	@Override
+	public int compareTo(City o) {
+		int comparar=this.direcciones.size()-o.direcciones.size();
+		if (comparar==0) {
+			comparar=this.getCity().compareToIgnoreCase(o.getCity());
+		}
+		return comparar;
 	}
 
 	
