@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class City implements Comparable<City>{
+public class City implements Comparable<City> {
 	private int city_id;
 	private String city;
 	private List<Address> direcciones;
@@ -39,13 +39,15 @@ public class City implements Comparable<City>{
 		int posicion = this.direcciones.indexOf(aux);
 		return this.direcciones.get(posicion);
 	}
+
 	public void addAddress(int adrress_id, String address) {
-		Address a=new Address(adrress_id,address);
-		int posicion=this.direcciones.indexOf(a);
-		if (posicion==-1) {
+		Address a = new Address(adrress_id, address);
+		int posicion = this.direcciones.indexOf(a);
+		if (posicion == -1) {
 			this.direcciones.add(a);
 		}
 	}
+
 	@Override
 	public String toString() {
 		return "City [city_id=" + city_id + ", city=" + city + ", direcciones=" + direcciones + "]";
@@ -67,17 +69,22 @@ public class City implements Comparable<City>{
 		City other = (City) obj;
 		return city_id == other.city_id;
 	}
+
 	public String escribirFichero() {
 		return this.city + ": " + direcciones.size() + "\n";
 	}
+
+	public String escribirFicheroCiudades() {
+		return this.getCity_id() + "," + this.getCity() + "\n" + this.direcciones;
+	}
+
 	@Override
 	public int compareTo(City o) {
-		int comparar=this.direcciones.size()-o.direcciones.size();
-		if (comparar==0) {
-			comparar=this.getCity().compareToIgnoreCase(o.getCity());
+		int comparar = this.direcciones.size() - o.direcciones.size();
+		if (comparar == 0) {
+			comparar = this.getCity().compareToIgnoreCase(o.getCity());
 		}
 		return comparar;
 	}
 
-	
 }

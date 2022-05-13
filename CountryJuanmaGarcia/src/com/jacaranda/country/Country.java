@@ -87,4 +87,11 @@ public class Country {
 				+ resultado;
 
 	}
+	public String escribirCiudades() {
+		StringBuilder resultado=new StringBuilder();
+		for (City siguiente:this.ciudades) {
+			resultado.append(siguiente.escribirFicheroCiudades());
+		}
+		return resultado.toString();
+	}
 }

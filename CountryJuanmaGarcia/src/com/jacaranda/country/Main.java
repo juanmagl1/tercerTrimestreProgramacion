@@ -17,10 +17,7 @@ public class Main {
 		leerCity("ficheros//city.txt");
 		leerAddress("ficheros//address2.txt");
 		escribirEnFichero("ficheros//terminado.txt");
-//		for (Country siguiente : paises) {
-//			System.out.println(siguiente);
-//		}
-		
+		escribirEnFicheroCiudades("ficheros//terminadoCiudades.txt");
 	}
 
 	private static void leerCountry(String nombreFichero) {
@@ -112,6 +109,21 @@ public class Main {
 			
 			for (Country siguiente:paises) {				
 				filtroEscritura.println(siguiente.escribirFichero());
+			}
+			filtroEscritura.close();
+			flujoEscritura.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	private static void escribirEnFicheroCiudades(String nombre) {
+		String cadena;
+		try {
+			FileWriter flujoEscritura = new FileWriter(nombre);
+			PrintWriter filtroEscritura = new PrintWriter(flujoEscritura);
+			
+			for (Country siguiente:paises) {				
+				filtroEscritura.println(siguiente.escribirCiudades());
 			}
 			filtroEscritura.close();
 			flujoEscritura.close();
