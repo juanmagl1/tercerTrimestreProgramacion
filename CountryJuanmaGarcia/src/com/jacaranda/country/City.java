@@ -75,7 +75,7 @@ public class City implements Comparable<City> {
 	}
 
 	public String escribirFicheroCiudades() {
-		return this.getCity_id() + "," + this.getCity() + "," + this.direcciones + "\n";
+		return this.getCity_id() + " " + this.getCity() + "," + this.direcciones + "\n";
 	}
 
 	@Override
