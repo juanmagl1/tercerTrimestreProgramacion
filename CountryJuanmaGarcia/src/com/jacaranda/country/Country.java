@@ -1,5 +1,6 @@
 package com.jacaranda.country;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,16 @@ public class Country {
 
 
 
-	
-	
+	public String escribirFichero() {
+		StringBuilder resultado = new StringBuilder();
+
+		Collections.sort(ciudades);
+		
+		for (City c : ciudades) {
+			resultado.append(c.escribirFichero());
+		}
+		return "Pais: " + country + "\nCountryId: " + country_id + "\nNumeroCiudades: " + ciudades.size() + "\n"
+				+ resultado;
+
+	}
 }

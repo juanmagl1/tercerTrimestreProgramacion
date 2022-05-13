@@ -111,7 +111,7 @@ public class Main {
 			PrintWriter filtroEscritura = new PrintWriter(flujoEscritura);
 			
 			for (Country siguiente:paises) {				
-				filtroEscritura.println(siguiente);
+				filtroEscritura.println(siguiente.escribirFichero());
 			}
 			filtroEscritura.close();
 			flujoEscritura.close();
@@ -119,4 +119,5 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 	}
+
 }

@@ -67,7 +67,9 @@ public class City implements Comparable<City>{
 		City other = (City) obj;
 		return city_id == other.city_id;
 	}
-
+	public String escribirFichero() {
+		return this.city + ": " + direcciones.size() + "\n";
+	}
 	@Override
 	public int compareTo(City o) {
 		int comparar=this.direcciones.size()-o.direcciones.size();
@@ -77,6 +79,5 @@ public class City implements Comparable<City>{
 		return comparar;
 	}
 
-	
 	
 }
