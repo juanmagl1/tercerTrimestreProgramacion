@@ -15,7 +15,7 @@ public Calle(String calle) {
 public void annadirCaseta(Caseta c) {
 	this.casetas.add(c);
 }
-public String getNumeroCalle() {
+public String getCalle() {
 	return calle;
 }
 public void setNumeroCalle(String calle) {
@@ -74,9 +74,9 @@ public String mostrarDistintoFamiliarYDistrito() {
 	}
 	return aux.toString();
 }
-public boolean eliminarCaseta(String idCaseta) throws CalleException {
+public boolean eliminarCaseta(String nombre) throws CalleException {
 	boolean eliminado=false;
-	Caseta aux=new Caseta(idCaseta);
+	Caseta aux=new Caseta(nombre);
 	int posicion=this.casetas.indexOf(aux);
 	if (posicion!=-1) {
 		this.casetas.remove(posicion);
