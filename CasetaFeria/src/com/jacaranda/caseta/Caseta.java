@@ -23,9 +23,9 @@ public Caseta(String titulo, String calle, int numero, int modulo, String clase,
 
 
 
-public Caseta(String calle) {
+public Caseta(String titulo) {
 	super();
-	this.calle = calle;
+	this.titulo = titulo;
 }
 
 
@@ -72,10 +72,17 @@ public int getId_calle() {
 public void setId_calle(int id_calle) {
 	this.id_calle = id_calle;
 }
+
+
+
+
 @Override
 public int hashCode() {
-	return Objects.hash(id);
+	return Objects.hash(titulo);
 }
+
+
+
 @Override
 public boolean equals(Object obj) {
 	if (this == obj)
@@ -85,12 +92,15 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	Caseta other = (Caseta) obj;
-	return id == other.id;
+	return Objects.equals(titulo, other.titulo);
 }
+
+
+
 @Override
 public String toString() {
 	return "Caseta [titulo=" + titulo + ", calle=" + calle + ", numero=" + numero + ", modulos=" + modulos + ", clase="
-			+ clase + ", id=" + id + ", id_calle=" + id_calle + "]";
+			+ clase + ", id=" + id + ", id_calle=" + id_calle + "]"+"\n";
 }
 
 }

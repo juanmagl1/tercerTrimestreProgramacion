@@ -36,7 +36,7 @@ public void setCasetas(List<Caseta> casetas) {
 }
 @Override
 public String toString() {
-	return "Calle [numeroCalle=" + calle + ", casetas=" + casetas + "]";
+	return "Calle numeroCalle=" + calle + ", casetas=" + casetas + "]";
 }
 public String mostrarCasetasCalle(String calle) {
 	StringBuilder resultado=new StringBuilder();
