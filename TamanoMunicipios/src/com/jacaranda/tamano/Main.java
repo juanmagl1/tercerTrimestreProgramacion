@@ -15,7 +15,8 @@ public class Main {
 		String fichero = leerJson("tamanoMunicipioComunidad.json");
 		// Nos importamos la libreria gson
 		siguiente.cargarDatos(fichero);
-		System.out.println(siguiente);
+		System.out.println(siguiente.mostrarComunidad(2010));
+		//System.out.println(siguiente.mostrarComunidadAno(2010,"Andalucía"));
 	}
 
 	private static String leerJson(String nombreFichero) {

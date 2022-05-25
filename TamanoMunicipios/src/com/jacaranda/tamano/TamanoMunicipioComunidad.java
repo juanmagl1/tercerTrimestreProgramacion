@@ -1,5 +1,6 @@
 package com.jacaranda.tamano;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +30,24 @@ public class TamanoMunicipioComunidad {
 		}
 		return resultado.toString();
 	}
-	public
-	
+	public String mostrarComunidad(int anno) {
+		StringBuilder resultado=new StringBuilder();
+		for (Comunidad c:this.lista) {
+			resultado.append(c.getNombre()+c.devuelve(anno));
+		}
+		return resultado.toString();
+	}
+	public String mostrarComunidadAno(int ano,String comunidad) {
+		StringBuilder resultado=new StringBuilder();
+		Iterator <Comunidad> siguiente=this.lista.iterator();
+		boolean encontrado=false;
+		while(siguiente.hasNext()&&!encontrado) {
+			Comunidad aux=siguiente.next();
+			if (aux.getNombre().toUpperCase().equalsIgnoreCase(comunidad.toUpperCase())) {
+				resultado.append(aux.getNombre()+aux.devuelve(ano));
+				encontrado=true;
+			}
+		}
+		return resultado.toString();
+	}
 }

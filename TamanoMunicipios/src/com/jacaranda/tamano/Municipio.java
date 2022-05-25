@@ -12,6 +12,14 @@ public class Municipio {
 		this.descrip = descrip;
 		datos = new ArrayList<>();
 	}
+	
+	public String getDescrip() {
+		return descrip;
+	}
+
+	public void setDescrip(String descrip) {
+		this.descrip = descrip;
+	}
 
 	@Override
 	public String toString() {
@@ -21,7 +29,7 @@ public class Municipio {
 		StringBuilder resultado=new StringBuilder();
 		for (Datos d:this.datos) {
 			if (d.getAno()==anno) {
-				resultado.append(d);
+				resultado.append(d+"\n");
 			}
 		}
 		return resultado.toString();
