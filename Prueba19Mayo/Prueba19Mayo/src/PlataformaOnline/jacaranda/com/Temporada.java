@@ -90,9 +90,11 @@ public class Temporada {
 	 *                            posición para añadir.
 	 * @throws TemporadaException
 	 */
-	public void anadirCapituloDespues(String nombreCapituloAnnadir, String nombreCapituloAnterior)
-			throws SerieException {
+	public void anadirCapituloDespues(String nombreCapituloAnnadir, String nombreCapituloAnterior) throws SerieException {
 		int pos = this.capitulos.indexOf(nombreCapituloAnterior);
+		if (pos==0) {
+			throw new SerieException("No existe el capotulo");
+		}
 		this.capitulos.add(pos + 1, nombreCapituloAnnadir);
 	}
 

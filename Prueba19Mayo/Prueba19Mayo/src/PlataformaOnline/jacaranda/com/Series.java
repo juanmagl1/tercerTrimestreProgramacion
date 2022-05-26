@@ -104,6 +104,9 @@ public class Series {
 	 */
 	public void modificarTema( String nombreSerie, Tema nuevoTema) throws SerieException {
 		Serie aux=this.mapSeries.get(nombreSerie);
+		if (aux==null) {
+			throw new SerieException("El tema no existe");
+		}
 		aux.setTema(nuevoTema);
 		
 		
